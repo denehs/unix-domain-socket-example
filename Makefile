@@ -1,12 +1,9 @@
-all: dir binary
+CC ?= gcc
 
-dir:
-	mkdir -p bin/
+all: server client
 
-binary: server client
+server: server.c
+	$(CC) server.c -o server
 
-server:
-	gcc -o bin/server server.c
-
-client:
-	gcc -o bin/client client.c
+client: client.c
+	$(CC) client.c -o client
